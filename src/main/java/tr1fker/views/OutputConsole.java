@@ -29,4 +29,16 @@ public class OutputConsole {
     public void printINameDir(){
         this.print("Введите название директории:");
     }
+
+    public void printINameDirFile(){
+        this.print("Введите название папки либо файла:");
+    }
+
+    public void printSCreated(){
+        this.print("Успешно создана!\n");
+    }
+
+    public void printSDel(){
+        this.print("Успешно удалена!\n");
+    }
 }

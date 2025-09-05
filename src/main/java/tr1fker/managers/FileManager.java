@@ -50,4 +50,9 @@ public class FileManager {
         File newFile = new File(this.getAbsolutePath() + File.separator + name);
         newFile.mkdir();
     }
+
+    public void deleteDirFile(String name){
+        File deleteFile = new File(this.getAbsolutePath() + File.separator + name);
+        deleteFile.delete();
+    }
 }
