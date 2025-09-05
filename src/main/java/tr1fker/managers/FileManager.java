@@ -32,7 +32,7 @@ public class FileManager {
             this.outputConsole.print("Директория пуста!\n");
             return;
         }
-        this.outputConsole.print("Количество:" + files.length + "\n");
+        this.outputConsole.print("Количество файлов и папок:" + files.length + "\n");
         for (File f : files){
             this.outputConsole.print(f.getName() + "\n", f.isFile() ? ConsoleColor.BLUE : ConsoleColor.YELLOW);
         }
@@ -44,5 +44,10 @@ public class FileManager {
 
     public void changeDirectory(String name){
         file = new File(getAbsolutePath() + File.separator + name);
+    }
+
+    public void createDirectory(String name){
+        File newFile = new File(this.getAbsolutePath() + File.separator + name);
+        newFile.mkdir();
     }
 }
