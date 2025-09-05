@@ -26,6 +26,15 @@ public class MenuHandler {
             this.printCustomMenu();
 
             int choice = this.inputHandler.inputInteger();
+
+            switch(choice){
+                case 1:
+                    this.printListFiles();
+                    break;
+                case 2:
+                    this.stop();
+                    break;
+            }
         }
     }
     
@@ -37,5 +46,14 @@ public class MenuHandler {
 1. Вывести список файлов
 2. Выход из программы
 Введите значение:""");
+    }
+
+    private void printListFiles(){
+        this.fileManager.printFiles();
+    }
+
+    public void stop(){
+        this.isRunning = false;
+        this.outputConsole.print("Программа успешно завершена!");
     }
 }
