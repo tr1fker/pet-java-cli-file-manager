@@ -32,6 +32,9 @@ public class MenuHandler {
                     this.printListFiles();
                     break;
                 case 2:
+                    this.changeDirectory();
+                    break;
+                case 3:
                     this.stop();
                     break;
             }
@@ -44,12 +47,34 @@ public class MenuHandler {
         this.outputConsole.print("""
 Выберите опцию:
 1. Вывести список файлов
-2. Выход из программы
-Введите значение:""");
+2. Сменить директорию
+3. Выход из программы
+""");
+        this.outputConsole.printINumber();
     }
 
     private void printListFiles(){
         this.fileManager.printFiles();
+    }
+
+    private void changeDirectory(){
+        this.outputConsole.print("""
+1. Вернуться в прошлую директорию
+2. Зайти в новую
+""");
+        this.outputConsole.printINumber();
+
+        int option = this.inputHandler.inputInteger();
+        switch(option){
+            case 1:
+                this.fileManager.toParent();
+                break;
+            case 2:
+                this.outputConsole.printINameDir();
+                String name = this.inputHandler.inputString();
+                this.fileManager.changeDirectory(name);
+                break;
+        }
     }
 
     public void stop(){
