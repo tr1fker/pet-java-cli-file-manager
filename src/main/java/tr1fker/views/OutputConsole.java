@@ -41,4 +41,8 @@ public class OutputConsole {
     public void printSDel(){
         this.print("Успешно удалена!\n");
     }
+
+    public void printSRenamed(){
+        this.print("Успешно переименовано!\n");
+    }
 }

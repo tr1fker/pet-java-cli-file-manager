@@ -33,8 +33,9 @@ public class FileManager {
             return;
         }
         this.outputConsole.print("Количество файлов и папок:" + files.length + "\n");
+        int count = 0;
         for (File f : files){
-            this.outputConsole.print(f.getName() + "\n", f.isFile() ? ConsoleColor.BLUE : ConsoleColor.YELLOW);
+            this.outputConsole.print( ++count + ". " + f.getName() + "\n", f.isFile() ? ConsoleColor.BLUE : ConsoleColor.YELLOW);
         }
     }
 
@@ -54,5 +55,11 @@ public class FileManager {
     public void deleteDirFile(String name){
         File deleteFile = new File(this.getAbsolutePath() + File.separator + name);
         deleteFile.delete();
+    }
+
+    public void renameDir(String name){
+        File fi = new File(file.getParentFile().getAbsoluteFile() + File.separator + name);
+        file.renameTo(fi);
+        file = fi;
     }
 }
