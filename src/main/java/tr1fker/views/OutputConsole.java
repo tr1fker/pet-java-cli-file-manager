@@ -21,4 +21,12 @@ public class OutputConsole {
     public void print(String message, ConsoleColor color){
         System.out.print(color.getValue() + message + defaultConsoleColor.getValue());
     }
+
+    public void printINumber(){
+        this.print("Введите значение:");
+    }
+
+    public void printINameDir(){
+        this.print("Введите название директории:");
+    }
 }
