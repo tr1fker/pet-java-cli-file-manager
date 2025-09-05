@@ -41,6 +41,9 @@ public class MenuHandler {
                     this.deleteDirFile();
                     break;
                 case 5:
+                    this.renameDir();
+                    break;
+                case 6:
                     this.stop();
                     break;
             }
@@ -56,7 +59,8 @@ public class MenuHandler {
 2. Сменить директорию
 3. Создать директорию
 4. Удалить папку либо файл
-5. Выход из программы
+5. Переименовать директорию
+6. Выход из программы
 """);
         this.outputConsole.printINumber();
     }
@@ -97,6 +101,13 @@ public class MenuHandler {
         String name = this.inputHandler.inputString();
         this.fileManager.deleteDirFile(name);
         this.outputConsole.printSDel();
+    }
+
+    public void renameDir(){
+        this.outputConsole.printINameDir();
+        String name = this.inputHandler.inputString();
+        this.fileManager.renameDir(name);
+        this.outputConsole.printSRenamed();
     }
 
     public void stop(){
