@@ -6,7 +6,7 @@ import tr1fker.views.OutputConsole;
 import java.io.File;
 
 public class FileManager {
-    private static final File file;
+    private static File file;
 
     static{
         file = new File(".");
@@ -34,7 +34,15 @@ public class FileManager {
         }
         this.outputConsole.print("Количество:" + files.length + "\n");
         for (File f : files){
-            this.outputConsole.print(f.getName() + "\n", f.isFile() ? ConsoleColor.BLUE : ConsoleColor.DEFAULT);
+            this.outputConsole.print(f.getName() + "\n", f.isFile() ? ConsoleColor.BLUE : ConsoleColor.YELLOW);
         }
+    }
+
+    public void toParent(){
+        file = file.getParentFile();
+    }
+
+    public void changeDirectory(String name){
+        file = new File(getAbsolutePath() + File.separator + name);
     }
 }
