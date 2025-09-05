@@ -38,6 +38,9 @@ public class MenuHandler {
                     this.createDirectory();
                     break;
                 case 4:
+                    this.deleteDirFile();
+                    break;
+                case 5:
                     this.stop();
                     break;
             }
@@ -52,7 +55,8 @@ public class MenuHandler {
 1. Вывести список файлов и папок
 2. Сменить директорию
 3. Создать директорию
-4. Выход из программы
+4. Удалить папку либо файл
+5. Выход из программы
 """);
         this.outputConsole.printINumber();
     }
@@ -81,10 +85,18 @@ public class MenuHandler {
         }
     }
 
-    public void createDirectory(){
+    private void createDirectory(){
         this.outputConsole.printINameDir();
         String name = this.inputHandler.inputString();
         this.fileManager.createDirectory(name);
+        this.outputConsole.printSCreated();
+    }
+
+    private void deleteDirFile(){
+        this.outputConsole.printINameDirFile();
+        String name = this.inputHandler.inputString();
+        this.fileManager.deleteDirFile(name);
+        this.outputConsole.printSDel();
     }
 
     public void stop(){
