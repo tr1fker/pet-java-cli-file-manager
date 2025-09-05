@@ -35,6 +35,9 @@ public class MenuHandler {
                     this.changeDirectory();
                     break;
                 case 3:
+                    this.createDirectory();
+                    break;
+                case 4:
                     this.stop();
                     break;
             }
@@ -46,9 +49,10 @@ public class MenuHandler {
         this.outputConsole.print(this.fileManager.getAbsolutePath() + "\n", ConsoleColor.CYAN);
         this.outputConsole.print("""
 Выберите опцию:
-1. Вывести список файлов
+1. Вывести список файлов и папок
 2. Сменить директорию
-3. Выход из программы
+3. Создать директорию
+4. Выход из программы
 """);
         this.outputConsole.printINumber();
     }
@@ -75,6 +79,12 @@ public class MenuHandler {
                 this.fileManager.changeDirectory(name);
                 break;
         }
+    }
+
+    public void createDirectory(){
+        this.outputConsole.printINameDir();
+        String name = this.inputHandler.inputString();
+        this.fileManager.createDirectory(name);
     }
 
     public void stop(){
